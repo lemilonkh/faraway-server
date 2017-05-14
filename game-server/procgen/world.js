@@ -8,43 +8,44 @@ var HEIGHT = 500;
 
 // imports
 var Alea = require('alea'); // PRNG
-var SimplexNoise = require('simplex-noise');
+var FastSimplexNoise = require('fast-simplex-noise');
 var FractalNoise = require('fractal-noise');
 var zeros = require('zeros');
 var savePixels = require('save-pixels');
 
 // init generators
 var random = new Alea(SEED);
-var simplex = new SimplexNoise(random);
+var noise = new FastSimplexNoise({
+	frequence: 0.01,
+	max: 255,
+	min: 0,
+	octaves: 8
+});
 
 // for future reference: read and save Alea state with:
 // Alea.importState(state)
 // random.exportState()
 
-// time to make some fractal noise (non-continuous)
-/*var noiseRect = FractalNoise.makeRectangle(WIDTH, HEIGHT, simplex.noise2D, {
-	amplitude: 0.85,
-	frequency: 4.0,
-	octaves: 8,
-	persistence: 0.65
-});*/
-
-function fakeNoise2D(x, y) {
-	return (x + y) / (WIDTH + HEIGHT);
+function fastSimplex(x, y) {
+	return noise.scaled([x, y]);
 }
 
-var noiseRect = FractalNoise.makeRectangle(WIDTH, HEIGHT, fakeNoise2D, {
+// time to make some fractal noise (non-continuous)
+var noiseRect = FractalNoise.makeRectangle(WIDTH, HEIGHT, fastSimplex, {
 	amplitude: 0.85,
 	frequency: 4.0,
 	octaves: 8,
 	persistence: 0.65
 });
 
-// encode noiseRect as linear ndarray
-var imageArray = zeros([HEIGHT, WIDTH]);
+// encode noiseRect and FastSimplexNoise as linear ndarrays
+var fractalImage = zeros([HEIGHT, WIDTH]);
+var simplexImage = zeros([HEIGHT, WIDTH]);
+
 for(var y = 0; y < HEIGHT; y++) {
 	for(var x = 0; x < WIDTH; x++) {
-		imageArray.set(x, y, noiseRect[y][x]);
+		fractalImage.set(x, y, noiseRect[y][x]);
+		simplexImage.set(x, y, fastSimplex(x, y));
 	}
 }
 
