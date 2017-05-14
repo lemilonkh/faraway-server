@@ -1,4 +1,4 @@
-# Faraway Server
+# FarAway Server
 Server backend and procedural generation tools for the game FarAway by YourWorstFriend
 
 ## Examples
