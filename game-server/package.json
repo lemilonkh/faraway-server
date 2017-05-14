@@ -1,9 +1,30 @@
 {
-    "name":"faraway_backend",
-    "version":"0.0.1",
-    "private":false,
-    "dependencies":{
-        "pomelo":"2.2.5"
-    }
+  "name": "faraway-gameserver",
+  "version": "0.0.1",
+  "description": "Gameserver for the FarAway procedural generation API",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "alea": "0.0.9",
+    "pomelo": "2.2.5"
+  },
+  "engines": {
+    "node": "4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lemilonkh/faraway-server"
+  },
+  "keywords": [
+    "node",
+    "procedural-generation",
+    "socket-io"
+  ],
+  "author": "Milan Gruner",
+  "contributors": [
+    "Milan Gruner <milangruner@gmail.com> (http://github.com/lemilonkh)"
+  ],
+  "license": "MIT"
 }
-

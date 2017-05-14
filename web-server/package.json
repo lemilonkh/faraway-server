@@ -1,8 +1,31 @@
 {
-  "name": "faraway_backend",
+  "name": "faraway-webserver",
   "version": "0.0.1",
-  "private": false,
+  "description": "Webserver for the FarAway procedural generation API",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
-    "express": "3.4.8"
-  }
+    "express": "^4.15.2",
+    "bootstrap": "^3.3.7",
+    "mdi": "^1.9.33"
+  },
+  "engines": {
+    "node": "4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lemilonkh/faraway-server"
+  },
+  "keywords": [
+    "node",
+    "procedural-generation",
+    "socket-io"
+  ],
+  "author": "Milan Gruner",
+  "contributors": [
+    "Milan Gruner <milangruner@gmail.com> (http://github.com/lemilonkh)"
+  ],
+  "license": "MIT"
 }
