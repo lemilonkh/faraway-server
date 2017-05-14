@@ -1,4 +1,4 @@
-![FarAway Server](/logo.png?raw=true)
+![FarAway Server](/logo.png?raw=true | width=300)
 
 # FarAway Server
 Server backend and procedural generation tools for the game FarAway by YourWorstFriend
