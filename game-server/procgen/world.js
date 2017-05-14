@@ -15,7 +15,8 @@ var savePixels = require('save-pixels');
 
 // init generators
 var random = new Alea(SEED);
-var noise = new FastSimplexNoise({
+var noise = new FastSimplexNoise.default({
+	random: random,
 	frequence: 0.01,
 	max: 255,
 	min: 0,
@@ -39,17 +40,17 @@ var noiseRect = FractalNoise.makeRectangle(WIDTH, HEIGHT, fastSimplex, {
 });
 
 // encode noiseRect and FastSimplexNoise as linear ndarrays
-var fractalImage = zeros([HEIGHT, WIDTH]);
-var simplexImage = zeros([HEIGHT, WIDTH]);
+var channels = 3; // DONE add multiple noise functions in different channels
+var resultImage = zeros([HEIGHT, WIDTH, channels]);
 
 for(var y = 0; y < HEIGHT; y++) {
 	for(var x = 0; x < WIDTH; x++) {
-		fractalImage.set(x, y, noiseRect[y][x]);
-		simplexImage.set(x, y, fastSimplex(x, y));
+		resultImage.set(x, y, 0, noiseRect[y][x]);
+		resultImage.set(x, y, 1, fastSimplex(x, y));
+		resultImage.set(x, y, 2, (x+y)/(WIDTH+HEIGHT));
 	}
 }
 
 // encode as PNG and write to standard output (shell)
-var channels = 1; // TODO add multiple noise functions in different channels
 // console.log("Image array:", imageArray);
-savePixels(imageArray, "png").pipe(process.stdout);
+savePixels(resultImage, "png").pipe(process.stdout);
