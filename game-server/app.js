@@ -4,7 +4,7 @@ var pomelo = require('pomelo');
  * Init app for client.
  */
 var app = pomelo.createApp();
-app.set('name', 'faraway_backend');
+app.set('name', 'faraway_server');
 
 // app configuration
 app.configure('production|development', 'connector', function(){
