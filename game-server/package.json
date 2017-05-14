@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "alea": "0.0.9",
-    "pomelo": "2.2.5"
+    "pomelo": "2.2.5",
+    "simplex-noise": "^2.3.0"
   },
   "engines": {
     "node": "4.0.0"
