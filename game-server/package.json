@@ -4,7 +4,8 @@
   "description": "Gameserver for the FarAway procedural generation API",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "procgen:": "node procgen/world.js > ../examples/output_$(date +\"%m-%d-%Y\").png"
   },
   "dependencies": {
     "alea": "0.0.9",
