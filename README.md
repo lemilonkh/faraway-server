@@ -1,9 +1,7 @@
-<img
-    src="https://github.com/lemilonkh/faraway-server/raw/master/logo.png"
-    width="480px" height="400px" />
-
 # FarAway Server
 Server backend and procedural generation tools for the game FarAway by YourWorstFriend
+
+<img src="https://github.com/lemilonkh/faraway-server/raw/master/logo.png" width="360px" height="300px" />
 
 ## Installation
 1. Install NodeJS (you know what to do)
