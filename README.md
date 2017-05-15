@@ -1,6 +1,6 @@
 <img
     src="https://github.com/lemilonkh/faraway-server/raw/master/logo.png"
-    width="500px" height="500px" />
+    width="480px" height="400px" />
 
 # FarAway Server
 Server backend and procedural generation tools for the game FarAway by YourWorstFriend
